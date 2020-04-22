@@ -6,11 +6,13 @@ import java.util.stream.IntStream;
 
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 
 import lombok.extern.java.Log;
 import reactor.core.publisher.Flux;
@@ -20,6 +22,9 @@ import reactor.core.publisher.Flux;
 @PropertySource("classpath:custome.properties")
 public class ReactiveMiscelaneaApplication implements CommandLineRunner {
 
+	@Autowired
+	Environment env;
+	
 	@Value("${custome.nombre}")
 	public String nombre;
 	
@@ -37,6 +42,7 @@ public class ReactiveMiscelaneaApplication implements CommandLineRunner {
 //		sumStream();
 		minStream();
 		System.out.println("LOAD FROM CONFIGURATION " + nombre);
+		System.out.println("Envorinment variable: " + env.getProperty("FIDEL_HOME"));
 	}
 	
 	public void BackPressureExampleEasy(){
