@@ -32,8 +32,7 @@ public class LoadConfigFileData {
 	
 	@Bean
 	public void loadDFataFromConfigirationFile() {
-//		LoadConfigFileData loadConfigFileData = new LoadConfigFileData();
-		System.out.println("LOAD FROM CONFIGURATION NAME--- " + name);
+		System.out.println("LOAD FROM CONFIGURATION NAME " + name);
 		System.out.println("LOAD FROM CONFIGURATION LASTNAME " + loadConfigFileData.lastname);
 		System.out.println("LOAD FROM CONFIGURATION EMAIL " + loadConfigFileData.email);
 		System.out.println("LOAD FROM CONFIGURATION ADDRESS " + loadConfigFileData.address);
