@@ -5,16 +5,20 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 @Configuration
-@PropertySource("classpath:custome.properties")
+@PropertySources({
+	@PropertySource("classpath:custome.properties"),
+	@PropertySource("classpath:custome_data_2.properties")
+})
 public class LoadConfigFileData {
 	
 	@Autowired
 	LoadConfigFileData loadConfigFileData;
 	
-	@Value("${custome.name}")
+	@Value("${custome_data.name}")
 	public String name;
 	
 	@Value("${custome.lastname}")
