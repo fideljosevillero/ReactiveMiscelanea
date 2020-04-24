@@ -33,14 +33,6 @@ public class ReactiveMiscelaneaApplication implements CommandLineRunner {
 		SpringApplication.run(ReactiveMiscelaneaApplication.class, args);
 	}
 	
-//	public static void loadDFataFromConfigirationFile() {
-//		LoadConfigFileData loadConfigFileData = new LoadConfigFileData();
-//		System.out.println("LOAD FROM CONFIGURATION NAME " + loadConfigFileData.loadDFataFromConfigirationFile());
-////		System.out.println("LOAD FROM CONFIGURATION LASTNAME " + loadConfigFileData.lastname);
-////		System.out.println("LOAD FROM CONFIGURATION EMAIL " + loadConfigFileData.email);
-////		System.out.println("LOAD FROM CONFIGURATION ADDRESS " + loadConfigFileData.address);
-//	}
-
 	@Override
 	public void run(String... args) throws Exception {
 //		FluxCreateExample();
