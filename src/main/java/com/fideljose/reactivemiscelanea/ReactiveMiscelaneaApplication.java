@@ -7,30 +7,39 @@ import java.util.stream.IntStream;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 
+import com.fideljose.reactivemiscelanea.configuration.LoadConfigFileData;
+
 import lombok.extern.java.Log;
 import reactor.core.publisher.Flux;
 
 @Log
-@SpringBootApplication
 @PropertySource("classpath:custome.properties")
+@SpringBootApplication
 public class ReactiveMiscelaneaApplication implements CommandLineRunner {
 
+	
+	private static LoadConfigFileData loadConfigFileData = new LoadConfigFileData();
+	
 	@Autowired
 	Environment env;
-	
-	@Value("${custome.nombre}")
-	public String nombre;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ReactiveMiscelaneaApplication.class, args);
 	}
+	
+//	public static void loadDFataFromConfigirationFile() {
+//		LoadConfigFileData loadConfigFileData = new LoadConfigFileData();
+//		System.out.println("LOAD FROM CONFIGURATION NAME " + loadConfigFileData.loadDFataFromConfigirationFile());
+////		System.out.println("LOAD FROM CONFIGURATION LASTNAME " + loadConfigFileData.lastname);
+////		System.out.println("LOAD FROM CONFIGURATION EMAIL " + loadConfigFileData.email);
+////		System.out.println("LOAD FROM CONFIGURATION ADDRESS " + loadConfigFileData.address);
+//	}
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -41,8 +50,6 @@ public class ReactiveMiscelaneaApplication implements CommandLineRunner {
 //		rangeStream();
 //		sumStream();
 		minStream();
-		System.out.println("LOAD FROM CONFIGURATION " + nombre);
-		System.out.println("Envorinment variable: " + env.getProperty("FIDEL_HOME"));
 	}
 	
 	public void BackPressureExampleEasy(){
@@ -144,6 +151,7 @@ public class ReactiveMiscelaneaApplication implements CommandLineRunner {
 					.min()
 					.orElse(0);
 		System.out.printf("%d", min);
+		System.out.println("");
 	}
 	
 }
