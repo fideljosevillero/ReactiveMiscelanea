@@ -33,6 +33,8 @@ public class PersonController {
 	public ResponseEntity<Person> saveTempPerson(@Valid @RequestBody Person person) {
 		String UID = UUID.randomUUID().toString();
 		person.setId(UID);
+		Person p = null;
+		p.getAddress();
 		return new ResponseEntity<Person>(person, HttpStatus.OK);
 	}
 	
