@@ -4,10 +4,9 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-//@Component
+
 public class Person {
 
-	@NotNull
 	private String id; 
 	
 	@NotNull(message="Last Name cannot be null")
