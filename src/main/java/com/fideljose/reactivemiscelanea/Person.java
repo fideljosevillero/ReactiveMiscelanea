@@ -1,14 +1,29 @@
 package com.fideljose.reactivemiscelanea;
 
-import org.springframework.stereotype.Component;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 //@Component
 public class Person {
 
+	@NotNull
 	private String id; 
+	
+	@NotNull(message="Last Name cannot be null")
+	@Size(min=3, message="Name cannot ve less that 3 characters")
 	private String name;
+	
+	@NotNull(message="Last Name cannot be null")
+	@Size(min=3, message="Lastname cannot ve less that 3 characters")
 	private String lastname;
+	
+	@NotNull(message="Last Name cannot be null")
+	@Email(message="Invalid email format")
 	private String email;
+	
+	@NotNull(message="Last Name cannot be null")
+	@Size(max=200, min=3)
 	private String address;
 	
 	public Person() {}

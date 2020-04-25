@@ -2,6 +2,8 @@ package com.fideljose.reactivemiscelanea.controller;
 
 import java.util.UUID;
 
+import javax.validation.Valid;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,7 +28,7 @@ public class PersonController {
 	}
 	
 	@PostMapping("/save")
-	public Person saveTempPerson(@RequestBody Person person) {
+	public Person saveTempPerson(@Valid @RequestBody Person person) {
 		String UID = UUID.randomUUID().toString();
 		person.setId(UID);
 		return person;
